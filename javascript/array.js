@@ -1,82 +1,385 @@
-// let  book1="match";
-// let  book2="sci";
-// let  book3="ss";
-// let  book4="english";
+// length
+// console.log(fruits.length)        //4
 
-// console.log(book4)
 
-// let  book =["match","sci","ss","english"];
+//1     .at(index+-)                                                                                    => element or undefined
+// let fruits=["apple","banana","kiwi","chicoo","df"]
+// console.log(fruits.at())                                                                              //apple
+// console.log(fruits.at(2))                                                                             //kiwi
+// console.log(fruits.at(-2))                                                                            //chicoo
+// console.log(fruits.at(99))                                                                            //undefined
 
-// let asset =[1,3.14,2,85]
+//2     .indexOf(searchElement, fromIndex)                                                               =>index or -1 or 0
+// const beasts = ['ant', 'bison', 'camel', 'duck', 'bison','duck', 'bison',"ant"];
+// console.log(beasts.indexOf('bison'));                                                                //1
+// console.log(beasts.indexOf('giraffe'));                                                              //-1
+// console.log(beasts.indexOf('bison', 2));                                                             //4
+// console.log(beasts.indexOf('bison', 3));                                                             //4
 
-// book[1]="gg"
-// console.log(book)
-// console.log(asset[2])
+// var indices = [];
+// var array = ['a', 'b', 'a', 'c', 'a', 'd'];
+// var element = 'a';
+// var idx = array.indexOf(element);
+// while (idx != -1) {
+//   indices.push(idx);
+//   idx = array.indexOf(element, idx + 1);
+// }
+// console.log(indices);                                                                                 // [0, 2, 4]
 
-// _______________________________________________
-// v=17  ==  array Operations
+//3     .lastIndexOf(searchElement, fromIndex)                                                          =>index or -1 or 0
+// const beasts = ['ant', 'bison', 'camel', 'duck', 'bison','duck', 'bison','ant'];
+// console.log(beasts.lastIndexOf('bison'));                                                            //6
+// console.log(beasts.lastIndexOf('giraffe'));                                                          //-1
+// console.log(beasts.lastIndexOf('bison', 2));                                                         //4
+// console.log(beasts.lastIndexOf('bison', 3));                                                         //4
 
-// let book =["math","sci","ss","english"];
+//4     array1.concat(array2, ... , arrayN)                                                             =>merge two or more arrays
+// const a1=["a","b","c"]
+// const a2=["d","e","f"]
+// console.log(a1.concat(a2))         //[ 'a', 'b', 'c', 'd', 'e', 'f' ]
 
-//length
-// console.log(book.length)
+// 5    .entries()                                                                                      => pair(index and value)
+// var a = ['a', 'b', 'c'];
+// for (const [index, element] of a.entries())
+//   console.log(index, element);                                                                       // 0 'a'
+//                                                                                                      // 1 'b'
+//                                                                                                      // 2 'c'
+// var a = ['a', 'b', 'c']; 
+// var iterator = a.entries();  
+// for (let e of iterator) {    
+//   console.log(e);                                                                                    // [0, 'a']
+// }                                                                                                    // [1, 'b']
+//                                                                                                      // [2, 'c']
 
-//push - increment in array after last array 
-//unshift-increment in array before first array
-//pop - remove last array
-//shift-remove frist array
+// 6   .every((element, index, array) => {                                                             => boolean at least one false,return false
+// const num=[1,2,3,4,5]
+// var check = (hi)=>hi%2==0                            //arrow
+// console.log(num.every(check))                                                                        //false
+// var check = function (hi){return hi%2==0}            //anonymous
+// console.log(num.every(check))                                                                        //false
 
-// book.push("hindi")
-// book.unshift("hello")
-// book.pop()
-// book.shift()
+// // check=((hi)=>hi%2==0)               
+// // console.log(num.every(check))                     //call back by arrow                            //false
 
-//splice  = 1 in postion 2 in number 
-// splice(pos,n)
-// book =[];
+// console.log(num.every((hi)=>hi%2==0))                //call back by arrow                            //false
+// console.log(num.every(function(hi){hi%2==0}))        //call back by anonymous                        //false
 
-//indexOf = array position 
-// let position=book.indexOf("ss")
+// function isBigEnough(element, index, array) {        //simple function
+//     return element >= 10;
+//   }
+//   console.log([12, 52, 41, 130, 44].every(isBigEnough));                                             // true
 
-//Array.isarray
-let book = "sci";
-console.log(Array.isArray(book))
+// function isSubset(array1, array2) {
+//     return array2.every(function (element) {
+//         console.log(element)
+//       return array1.includes(element);                  //return true or false
+//     });
+//   }
+//   console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 7, 6]));                                           // true
+//   console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 8, 7]));                                           // false
 
-//split == string convert array
-// let text="this is a random text"
+// 7   .some((element, index, array) => {                                                              => boolean at least one true,return true
+// const num=[1,2,3,4,5]
+// var check = (hi)=>hi%2==0                              //arrow
+// console.log(num.some(check))                                                                         //true
+// var check = function (hi){return hi%2==0}              //anonymous
+// console.log(num.some(check))                                                                         //true
 
-// let a=text.split(" ")
-// console.log(a)
+// // check=((hi)=>hi%2==0)               
+// // console.log(num.some(check))                        //call back by arrow                          //true
 
-//join = array to string 
+// console.log(num.some((hi)=>hi%2==0))                   //call back by arrow                          //true
+// console.log(num.some(function(hi){return hi%2==0}))    //call back by anonymous                      //true
 
-// let a=book.join(" ")
-// console.log(a)
+// function isBigEnough(element, index, array) {          //simple function
+//     return element >= 10;
+//   }
+//   console.log([12, 52, 4, 130, 44].some(isBigEnough));                                               // true
 
-//concat
-// let  book =["math","sci","ss","english"];
+// const fruit = ['apple', 'banana', 'mango', 'guava'];
+// function checkAvailability(arr, val) {
+//   return arr.some(function(ele) {
+//       console.log(ele)
+//     return val === ele;                         //return true or false
+//   });
+// }
+// console.log(checkAvailability(fruit, 'kela'));   // false
+// console.log(checkAvailability(fruit, 'banana')); // true
 
-// let book2=["hindi","gujarati"]
-// console.log(book.concat(book2))
 
-// array in array
-// let bookwithpages =[
-//     ["math","300"],
-//     ["sci","500"],
-//     ["ss","400"],
-// ];
-// console.log(bookwithpages[2][1])
+// 8    .fill(value, start+-, end+-)        //(main array change)                                       =>filled with value.
+// const num=[1,2,3,4,5]
+// console.log(num.fill(0, 2, 4));                                                                      //[ 1, 2, 0, 0, 5 ]
+// [1, 2, 3].fill(4)                                                                                    // [4, 4, 4]
+// [1, 2, 3].fill(4, 1)                                                                                 // [1, 4, 4]
+// [1, 2, 3].fill(4, 1, 2)                                                                              // [1, 4, 3]
+// [1, 2, 3].fill(4, 1, 1)                                                                              // [1, 2, 3]
+// [1, 2, 3].fill(4, 3, 3)                                                                              // [1, 2, 3]
+// [1, 2, 3].fill(4, -3, -2)                                                                            // [4, 2, 3]
 
-// loop taru
 
-// for(i=0;i<book.length;i++)
+//9     .flat(depth)                                                                                     =>sub-array concatenated
+// const arr2 = [0, 1, 2, [[[3, 4]]]];
+// console.log(arr2.flat(2));                                                                              //[ 0, 1, 2, [ 3, 4 ] ]
+
+//7.indexof()
+// console.log(fruits.indexOf("kiwi"))                                                                  //2
+// console.log(fruits.indexOf("kiw"))                                                                   //-1
+
+
+
+
+
+
+
+//2.forEach()
+// fruits.forEach(function(a,b,c){        //(a=elements, b=index, c=array)          //call back with annonymous
+//   console.log(a,b,c)                   // apple 0 [ 'apple', 'banana', 'kiwi', 'chicoo' ]
+                                       // banana 1 [ 'apple', 'banana', 'kiwi', 'chicoo' ]
+                                       // kiwi 2 [ 'apple', 'banana', 'kiwi', 'chicoo' ]
+                                       // chicoo 3 [ 'apple', 'banana', 'kiwi', 'chicoo' ]
+// })
+// fruits.forEach((a,b,c)=>{                                                           //call back with arrow
+//     console.log(a,b,c)
+// })
+
+//3.pop()
+// let a=fruits.pop()
+// f=fruits.join("")
+// console.log(f)                 //[ 'apple', 'banana', 'kiwi' ]
+// console.log(a)                 //[ 'apple', 'banana', 'kiwi' ]
+// var n1=[]
+// let b=n1.pop()                 //undefined
+// console.log(b)                 //[ 'apple', 'banana', 'kiwi' ]
+
+//4.push()
+// const countt=fruits.push("df")
+// console.log(countt)                // 6
+// console.log(fruits)                //[ 'apple', 'banana', 'kiwi', 'chicoo', 'df', 'df' ]
+
+//Merging two arrays
+// let vegetables = ['parsnip', 'potato']
+// let moreVegs = ['celery', 'beetroot']
+// vegetables.push(...moreVegs);
+// console.log(vegetables)  // ['parsnip', 'potato', 'celery', 'beetroot']
+
+//5.unshift()
+// var c=fruits.unshift("mango")
+// console.log(fruits)                  //[ 'mango', 'apple', 'banana', 'kiwi', 'chicoo' ]
+
+//6.shift()
+// var d=fruits.shift()                 
+// console.log(fruits)                 //[ 'banana', 'kiwi', 'chicoo' ]
+
+
+
+
+
+
+
+// 10.reverse()
+// console.log(fruits.reverse())          //[ 'chicoo', 'kiwi', 'banana', 'apple' ]
+
+// 11.slice(start,end)
+// console.log(fruits.slice(1,3))         //[ 'banana', 'kiwi' ]
+
+// 12.splice(position,number)
+// console.log(fruits.splice(2,3))        //[ 'kiwi', 'chicoo' ]
+// console.log(fruits)
+
+//13.includes()
+// console.log(fruits.includes("kiwi"))         //true
+// console.log(fruits.includes("berry"))         //false
+
+
+
+
+
+
+// 21.find()               --------return first satisfies element
+// console.log(num.find(x => x>3))              //4
+
+// 22.findindex()
+// console.log(num.findIndex(x => x>3))              //3
+
+// 17.filter()    --------return satisfy condition--------
+// var check = (hello)=>hello.length<5
+// console.log(fruits.filter(check))                   //[ 'kiwi' ]
+// console.log(fruits.filter(test=>test.length<6))         //[ 'apple', 'kiwi' ]
+// console.log(fruits.filter((a,b,c)=>console.log(a,b,c))) //apple 0 [ 'apple', 'banana', 'kiwi', 'chicoo' ]
+                                                        //banana 1 [ 'apple', 'banana', 'kiwi', 'chicoo' ]
+                                                        //kiwi 2 [ 'apple', 'banana', 'kiwi', 'chicoo' ]
+                                                        //chicoo 3 [ 'apple', 'banana', 'kiwi', 'chicoo' ]
+
+// 18.map()  -------return change satisfy array-------
+// console.log(num.map((x=>x*2)))        //x=element //[ 2, 4, 6, 8, 10 ]
+
+
+// 19.reduce()
+// var x=[10,20,30,40]
+// var test = (p,c)=>p+c
+// console.log(x.reduce(test))               //100
+// console.log(x.reduce(test,50))             //150
+
+// var t1 = (a,b,c,d) =>{              // (previousValue, currentValue, currentIndex, array) 
+//     console.log(a,b,c,d)
+//     console.log(`previous: ${a}, current: ${b}, index: ${c}, returns: ${d}`);
+//     return a+b                      //previous: 10, current: 20, index: 1, returns: 10,20,30,40
+//                                     //previous: 30, current: 30, index: 2, returns: 10,20,30,40
+//                                    //previous: 60, current: 40, index: 3, returns: 10,20,30,40
+
+// }
+// console.log(x.reduce(t1))            //100
+
+// let deposite=[200,440,7000,680]
+// const max=deposite.reduce((a,b)=>{
+//     if(a>b)return a
+//     else return b
+// })
+//deposite[0])
+// console.log(max)            //7000
+
+// 20.toString()
+var array1 = [1, 2, 'a', '1a'];
+// console.log(array1.toString());          //1,2,a,1a
+
+//23.spread(...)
+
+// let deposite=[200,440.7000,680]
+// let withdra=[-400,-680,-280]
+// console.log(...deposite,...withdra)        //200 440.7 680 -400 -680 -280
+// console.log([...deposite,...withdra])      //[ 200, 440.7, 680, -400, -680, -280 ]
+
+
+// const number=[1,2,3]
+// console.log(200,89,...number,56)         //200 89 1 2 3 56
+
+// var new_number=12
+// console.log([100,...number,new_number])    //[ 100, 1, 2, 3, 12 ]
+
+
+
+
+
+
+// -----------extra------------
+
+// # array distructuting(swap)
+// var a=10,b=65;
+// [a,b]=[b,a]
+// console.log("a : ",a)     //65
+// console.log("b : ",b)     //10
+
+
+// function result(s1,s2,s3){
+//     return[s1+s2+s3,(s1+s2+s3)/3]       //return only array not two digit
+// }
+// console.log(result(80,90,70))     //[ 240, 80 ]
+// let [total,percentage]=result(80,90,70)
+// console.log(total,"-",percentage)   //240 - 80
+
+// var getmarks=()=>[34,56,98,79,99]
+// let marks = getmarks()
+// console.log(marks)       //[ 34, 56, 98, 79, 99 ]
+
+// let [...a1]=getmarks()
+// console.log(a1)             //[ 34, 56, 98, 79, 99 ]
+
+
+// 23. for...of
+var amt=[200,450,-400,-3000,-650,-130,70,1300]
+// for(const x of amt)                  //x=element
 // {
-// console.log(`Element ${i} is ${book[i]}`)
+//     console.log(x)   //200
+//                      //450
+//                      //-400 ...
 // }
 
-// book.forEach(myfun)
+// for(let [x,y] of amt.entries())         //x=index,y=element
+//     console.log(x,"-",y)    //0 - 200    
+                               //1 - 450
+                               //2 - -40
 
-// function myfun(value){
-//     console.log(value)
+
+// 1  //using for...of
+// for(var [x,y] of amt.entries()){
+//     if(y>0){
+//         console.log(`y ${x+1} : you deposited ${y}`)                    //y 1 : you deposited 200
+//     }                                                                   //y 2 : you deposited 450
+//     else{                                                               //y 3 : you withdrew 400
+//         console.log(`y ${x+1} : you withdrew ${(Math.abs(y))}`)
+//     }
 // }
 
+//2   //using forEach
+// amt.forEach((x,y)=>{                 //x=element,y=index,z=array
+//     if(x>0){
+//         console.log(`y ${y+1} : you deposited ${x}`)                    //y 1 : you deposited 200
+//     }                                                                   //y 2 : you deposited 450
+//     else{                                                               //y 3 : you withdrew 400
+//         console.log(`y ${y+1} : you withdrew ${(Math.abs(x))}`)
+//     }
+// })
+
+//1 using map
+var amt1=[200,450,400,3000,650,130,70,1300]
+var rate=1.1
+// for(var s of amt1){
+    // t=amt1.map((ele)=>ele*rate)          
+    // console.log(t)                         //[220,495,440 ....77,1430]
+    // console.log(s*rate)                    // 220,495,440 ....77,1430
+// }
+// console.log(t)                             //[220,495,440 ....77,1430]
+
+//2 using for...of
+// var arr=[]
+// for(var ele of amt1){
+//      arr.push(ele*rate)
+// }
+// console.log(arr)                                //[220,495,440 ....77,1430] 
+
+// const test=amt.map((x,y)=>`y ${y+1} : ${x>0?'deposited ':'withdrew '}${(Math.abs(x))}`)        //x=element,y=index
+// console.log(test)                               //[ 'y 1 : deposited 200',
+                                                // 'y 2 : deposited 450',
+                                                // 'y 3 : withdrew 400',.....]   
+
+//using map
+// var a=[1,2,3,4,5]
+// console.log(a.map((ele,i)=>ele*2))        //[ 2, 4, 6, 8, 10 ]
+
+//using forEach
+// arr=[] 
+// a.forEach((ele)=>{   
+//     arr.push(ele*2)
+// })
+// console.log(arr)                            //[ 2, 4, 6, 8, 10 ]
+
+// //using for...of
+// array=[]
+// for(var ele of a){
+//     array.push(ele*2)
+// }
+// console.log(array)                          //[ 2, 4, 6, 8, 10 ]
+
+//using for...of
+// array=[]        
+// for(var ele in a){                          //index
+//     console.log(ele)                          //[ '0', '1', '2', '3', '4' ]
+// }
+// console.log(array)                          //[ '0', '1', '2', '3', '4' ]
+
+// //using filter()
+// arr2=[]
+// a.filter((ele)=>{
+//     arr2.push(ele*2)z
+// })
+// console.log(arr2)                               //[ 2, 4, 6, 8, 10 ]
+
+// arr1=[]
+// a.reduce((x,y)=>{
+//     arr1.push(y*2)
+// })
+// console.log(arr1)                               //[ 4, 6, 8, 10 ]
+
+
+// console.log(jaldip)
