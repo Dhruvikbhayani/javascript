@@ -10,7 +10,7 @@ let x = setInterval(fun1, 100);
 setTimeout(() => {
   clearInterval(x);
 }, 4400);
-
+// --------------------------------------------------------------------
 let Fruits = ["strawberry", "grapes", "banana", "apple"];
 let j = 0;
 
